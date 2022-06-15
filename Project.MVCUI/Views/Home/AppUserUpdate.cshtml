@@ -1,0 +1,69 @@
+﻿@model AppUserVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AppUserUpdate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <div class="bg-slate-900 max-w-full h-24">
+            <div class="ml-2 flex flex-row pt-4">
+                <img class="h-16 w-16" src="~/Images/61177330982724000a19b190.png" />
+                <label class="text-3xl ml-1 mt-2 font-mono text-slate-400 ">Invoice Processing Company</label>
+            </div>
+
+
+        </div>
+    </header>
+
+    <section>
+        <div>
+
+            @using (Html.BeginForm("AppUserUpdate", "Home", FormMethod.Post))
+            {
+                <div class="mt-16 ml-16 bg-sky-400 text-center" style="width:300px;height:400px">
+
+                    <div class="grid grid-raw-2">
+                        <label class=" text-xl text-teal-700">First Name</label>
+                        <input value="@Model.AppUser.FirstName" name="firstName" class="border-4 border-green-500 rounded-full "  type="text" />
+                    </div>
+
+                    <div class="grid grid-raw-2 mt-4">
+                        <label class=" text-xl text-teal-700">Last Name</label>
+                        <input value="@Model.AppUser.LastName" name="lastName" class="border-4 border-green-500 rounded-full " type="text" />
+                    </div>
+
+                    <div class="grid grid-raw-2 mt-4">
+                        <label class=" text-xl text-teal-700">Address</label>
+                        <input value="@Model.AppUser.Address" name="address" class="border-4 border-green-500 rounded-full " type="text" />
+                    </div>
+
+                    <div class="grid grid-raw-2 mt-4">
+                        <label class=" text-xl text-teal-700">E Mail</label>
+                        <input value="@Model.AppUser.EMail" name="eMail" class="border-4 border-green-500 rounded-full " type="text" />
+                    </div>
+
+
+
+                    <div class="">
+                        <button name="id" value="@Model.AppUser.ID" class=" mt-4 bg-blue-700 hover:bg-blue-600 text-sky-50 font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline" style="height:50px;width:200px">
+                            Update User
+                        </button>
+
+                    </div>
+                    
+
+                </div>
+
+            }
+        </div>
+    </section>
+</body>
+</html>

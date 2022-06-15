@@ -1,0 +1,75 @@
+﻿@model AppUserVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AppUserList</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            background-color: #96D4D4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="bg-slate-900 max-w-full h-24 flex flex-row">
+            <div class="ml-2 flex flex-row pt-4">
+                <img class="h-16 w-16" src="~/Images/61177330982724000a19b190.png" />
+                <label class="text-3xl ml-1 mt-2 font-mono text-slate-400 ">Invoice Processing Company</label>
+            </div>
+
+            <a class="pt-8 ml-2 text-xl font-bold text-slate-300" href="/Home/AppUserAdd">Add User</a>
+
+            <a class="pt-8 ml-2 text-xl font-bold text-slate-300" href="/Product/ProductList">List Product</a>
+
+            <a class="pt-8 ml-2 text-xl font-bold text-slate-300" href="/Bill/BillList">List Bill</a>
+
+
+
+        </div>
+    </header>
+
+    <section>
+        <table class="table-fixed border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Address</th>
+                    <th>E Mail</th>
+                    <th colspan="2">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (AppUser item in Model.AppUsers)
+                {
+                    <tr>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Address</td>
+                        <td>@item.EMail</td>
+                        <td class="text-amber-700 font-bold">@Html.ActionLink("Update", "AppUserUpdate", new { id = item.ID })</td>
+                        <td class="text-red-700 font-bold">@Html.ActionLink("Delete", "AppUserDelete", new { id = item.ID })</td>
+                    </tr>
+
+                }
+            </tbody>
+
+
+
+        </table>
+        <label class="text-xl text-amber-700">@TempData["info"]</label>
+    </section>
+</body>
+</html>
